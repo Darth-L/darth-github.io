@@ -1,0 +1,1413 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darth Leanza - AI Portfolio</title>
+    <meta name="description" content="AI Portfolio showcasing machine learning, deep learning, and generative AI projects by Your Name.">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Chat bot stylesheet -->
+    <link rel="stylesheet" href="/lib_chat_bot/botui.min.css" />
+
+    <!-- index.html Styles -->
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #10b981;
+            --dark: #111827;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --light-gray: #e5e7eb;
+            --border: #374151;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+            .logo span {
+                color: var(--dark);
+            }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+            .nav-links a {
+                text-decoration: none;
+                color: var(--dark);
+                font-weight: 500;
+                transition: color 0.3s;
+                position: relative;
+            }
+
+                .nav-links a:hover {
+                    color: var(--primary);
+                }
+
+                .nav-links a::after {
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 2px;
+                    bottom: -5px;
+                    left: 0;
+                    background-color: var(--primary);
+                    transition: width 0.3s;
+                }
+
+                .nav-links a:hover::after {
+                    width: 100%;
+                }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 6rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+            .hero h1 {
+                font-size: 3.5rem;
+                margin-bottom: 1rem;
+                background: linear-gradient(to right, var(--primary), var(--primary-dark));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .hero .subtitle {
+                font-size: 1.25rem;
+                color: var(--gray);
+                max-width: 600px;
+                margin: 0 auto 2rem;
+            }
+
+            .hero .cta-buttons {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+            .btn-primary:hover {
+                background-color: var(--primary-dark);
+                transform: translateY(-2px);
+            }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+            .btn-outline:hover {
+                background-color: var(--primary);
+                color: white;
+            }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+            .section-title::after {
+                content: '';
+                position: absolute;
+                width: 60px;
+                height: 4px;
+                background-color: var(--primary);
+                bottom: -15px;
+                left: 50%;
+                transform: translateX(-50%);
+                border-radius: 2px;
+            }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+
+        .skills {
+            margin-top: 2rem;
+        }
+
+            .skills h3 {
+                margin-bottom: 1rem;
+                color: var(--dark);
+            }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background-color: #eef2ff;
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+            .about-image img {
+                width: 280px;
+                height: 280px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 8px solid #eef2ff;
+                box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+            }
+
+        /* Projects Section */
+        .projects {
+            padding: 6rem 0;
+            background-color: #f8fafc;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border: 1px solid var(--light-gray);
+        }
+
+            .project-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+            .project-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s;
+            }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+
+        .project-description {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background-color: #f3f4f6;
+            color: var(--gray);
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+            .project-links a {
+                color: var(--primary);
+                text-decoration: none;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                transition: color 0.3s;
+            }
+
+                .project-links a:hover {
+                    color: var(--primary-dark);
+                }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background-color: white;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact p {
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: #f3f4f6;
+            color: var(--gray);
+            border-radius: 50%;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+            .social-link:hover {
+                background-color: var(--primary);
+                color: white;
+                transform: translateY(-5px);
+            }
+
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+            .form-group label {
+                font-weight: 500;
+                color: var(--dark);
+            }
+
+        .form-control {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 0.5rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+            .form-control:focus {
+                outline: none;
+                border-color: var(--primary);
+                box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+            footer p {
+                opacity: 0.8;
+            }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-image img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        /* Placeholder image fallback */
+        .placeholder-img {
+            background: linear-gradient(45deg, #e5e7eb 25%, transparent 25%), linear-gradient(-45deg, #e5e7eb 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e5e7eb 75%), linear-gradient(-45deg, transparent 75%, #e5e7eb 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+
+        /* ---------- MEDIA (video / carousel) ---------- */
+        .project-media {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            background: #111;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+
+            .project-media video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        /* ---- Carousel ---- */
+        .carousel {
+            position: relative;
+        }
+
+        .carousel-inner {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform .4s ease;
+        }
+
+            .carousel-inner img {
+                min-width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .carousel-prev,
+        .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,.5);
+            color: #fff;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .9rem;
+            transition: background .2s;
+        }
+
+        .carousel-prev {
+            left: 10px;
+        }
+
+        .carousel-next {
+            right: 10px;
+        }
+
+            .carousel-prev:hover,
+            .carousel-next:hover {
+                background: rgba(0,0,0,.8);
+            }
+
+        /* Hide media on very small screens (optional) */
+        @media (max-width: 480px) {
+            .project-media {
+                height: 150px;
+            }
+        }
+
+        /* ======== SQUARE 1:1 AI IMAGE CAROUSEL ======== */
+        .ai-image-carousel {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Max size on large screens */
+            margin: 0 auto 2rem;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            background: #000;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%; /* Forces 1:1 square */
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease;
+        }
+
+            .carousel-track img {
+                min-width: 100%;
+                height: 100%;
+                object-fit: contain; /* Keeps full image visible, no crop */
+                background: #111;
+                flex-shrink: 0;
+            }
+
+        /* Optional: Use object-fit: cover for cropped zoom effect */
+        /* .carousel-track img { object-fit: cover; } */
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.6);
+            color: white;
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: 0.3s;
+        }
+
+            .carousel-btn:hover {
+                background: rgba(0,0,0,0.9);
+            }
+
+        .prev {
+            left: 16px;
+        }
+
+        .next {
+            right: 16px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+            .carousel-dots span {
+                width: 10px;
+                height: 10px;
+                background: rgba(255,255,255,0.5);
+                border-radius: 50%;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+                .carousel-dots span.active {
+                    background: white;
+                    width: 12px;
+                    height: 12px;
+                }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .ai-image-carousel {
+                max-width: 400px;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ai-image-carousel {
+                max-width: 300px;
+            }
+        }
+
+        iframe {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 50pt;
+            width: 60%; /* or any desired width */
+        }
+    </style>
+
+    <!-- Popup Chatbot Styles -->
+    <style>
+        /* Popup Chatbot Styles */
+        .chatbot-popup {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            max-height: 400px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-sizing: border-box; /* Ensure padding doesn’t expand width */
+        }
+
+        .chatbot-header {
+            background: #000000 !important;
+            color: #ffffff;
+            padding: 5px;
+            padding-left: 10px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-toggle {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .chatbot-content {
+            display: none;
+            max-height: 350px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 10px;
+        }
+
+            .chatbot-content.open {
+                display: block;
+            }
+
+        .botui-message {
+            padding-left: 5px;
+            margin: 5px 0;
+            width: 100%; /* Ensure full width usage */
+        }
+
+        .botui-message-content { /*Bot response text*/
+            background-color: #ffffff;
+            color: #000000;
+            border-radius: 5px;
+            padding: 8px;
+            line-height: 20px;
+            margin: 0 5px; /* Center within parent */
+            width: auto; /* Let content define width */
+            max-width: 270px !important; /* Slightly less than popup width */
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+            word-break: break-word; /* Break long words */
+            overflow-wrap: break-word; /* Ensure text wraps */
+            font-size: 14px; /* Slightly smaller for better fit */
+            text-align: left; /* Align all messages left for consistency */
+        }
+
+            .botui-message-content.human {
+                background-color: #D9DDDC; /* Differentiate user messages */
+                margin-left: 5px; /* Small offset for clarity */
+                text-align: right;
+                margin-right: 125px;
+            }
+
+        .botui-actions-text-input { /*User input text*/
+            max-width: 270px !important; /* Slightly less than popup width */
+            margin-left: auto;
+            margin-right: auto;
+            padding: 8px;
+            border: 1px solid #ffd700;
+            border-radius: 5px;
+            background: #ffffff;
+            color: #000000;
+        }
+        /* Toggle button when popup is closed */
+        .chatbot-toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ffffff !important;
+            color: #000000;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 1000;
+        }
+        /* Responsive tweak for smaller screens */
+        @media (max-width: 400px) {
+            .chatbot-popup {
+                width: 90vw; /* Use viewport width for mobile */
+                right: 5px;
+                bottom: 5px;
+            }
+
+            .chatbot-toggle-btn {
+                right: 5px;
+                bottom: 5px;
+                background: #ffffff !important;
+            }
+
+            .chatbot-header {
+                background: #000000 !important; /* Ensure black on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">AI<span>Portfolio</span></a>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Darth Leanza</h1>
+            <p class="subtitle">AI Engineer | Prompt Engineer | GenAI | Building Intelligent Systems | Game Developer</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-folder-open"></i>
+                    View Projects
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    <i class="fas fa-envelope"></i>
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a passionate AI engineer with expertise in machine learning, prompt engineering, generative AI and game development. I specialize in developing innovative solutions that bridge the gap between research and real-world applications.
+                    </p>
+
+                    <p>I am proficient with; Grok, Copilot, Elevenlabs, Midjourney as well as Unity, Unity 6 and C#.</p>
+
+                    <h3>EDUCATION</h3>
+                    <p>A.S. in Computer Science<br />Certificate in Web Design<br />MCC | Edison, NJ</p>
+                    <p>Google AI Essentials Certificate<br />Google</p>
+
+                    <div class="skills">
+                        <h3>Technical Skills</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Grok</span>
+                            <span class="skill-tag">Replit</span>
+                            <span class="skill-tag">Copilot</span>
+                            <span class="skill-tag">Elevenlabs</span>
+                            <span class="skill-tag">Midjourney</span>
+                            <span class="skill-tag">LLMs</span>
+                        </div>
+                        <h3>Bonus Skills</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Unity 6</span>
+                            <span class="skill-tag">C#</span>
+                            <span class="skill-tag">Photoshop</span>
+                            <span class="skill-tag">DaVinci Resolve</span>
+                            <span class="skill-tag">Audacity</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/circle280.png" alt=" ">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- ==== PROJECT 1 ==== -->
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 2rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <h3 class="project-title">Rule-based Chatbot + WordPress Integration</h3>
+                            <span class="project-badge" style="background: #8b5cf6; color: white; padding: 0.25rem 0.75rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 600;">Information</span>
+                        </div>
+                        <p class="project-description">
+                            The rule-based popup chatbot integrated into a WordPress includes, Robust error handling,
+                            JavaScript, BotUI (MIT, © 2016 Moinuddin K. Qureshi), Vue.js (MIT, © 2013-present Yuxi You),
+                            Fuzzball.js (MIT, © 2018 Nolan Lawson), CSS for UI customization,
+                            Enhanced fuzzy search for partial matches and a Toggle button.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Groq</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">Enhanced Fuzzy Search</span>
+                        </div>
+                        <div class="project-links">
+                            <p style="color: blue;">Demo Available on this Page</p>
+                            <!--<a href="#"><i class="fab fa-github"></i> Code</a>
+                            <a href="#"><i class="fas fa-chart-line"></i> Notebook</a>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 2rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <h3 class="project-title">AI Web Researcher Agent</h3>
+                            <span class="project-badge" style="background: #f59e0b; color: white; padding: 0.25rem 0.75rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 600;">Search Agent</span>
+                        </div>
+
+
+                        <p class="project-description">Built a lightweight, real-time AI research agent that answers natural language queries with verified web sources. Deployed as a public REST API on Replit, the agent uses ReAct reasoning (Reason + Act) to decide when to search the web, then returns structured JSON with citation links.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">LangGraph</span>
+                            <span class="tech-tag">Groq (Llama-3.1)</span>
+                            <span class="tech-tag">DuckDuckGo Search</span>
+                        </div>
+                        <div class="project-links">
+                            <!--<a href="#"><i class="fab fa-github"></i> Code</a>
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem;">
+                            <h3 class="project-title">AI Portfolio Website</h3>
+                            <span class="project-badge" style="background: #10b981; color: white; padding: 0.25rem 0.75rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 600;">Live</span>
+                        </div>
+
+                        <br />
+                        <p class="project-description">Responsive, image-light portfolio built with vanilla HTML/CSS/JS. Features smooth scroll, video/carousel demos, and dark-mode-ready structure. Loads in <600 ms, 100 Lighthouse score.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">Vanilla JS</span>
+                            <span class="tech-tag">Responsive</span>
+                        </div>
+                        <div class="project-links">
+                            <p style="color: blue;">Live Demo</p>
+                            <!--<a href="#"><i class="fab fa-github"></i> Code</a>
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 2rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <h3 class="project-title">Conversational AI Companion, Advanced Memory & Personalization</h3>
+                            <span class="project-badge" style="background: #ef4444; color: white; padding: 0.25rem 0.75rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 600;">Full-Stack</span>
+                        </div>
+                        <!-- ==== VIDEO ==== -->
+                        <!--<div class="project-media">
+                            <video controls loop muted playsinline poster="https://via.placeholder.com/800x450?text=Video+Preview">
+                                <source src="project1-demo.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <br />-->
+                        <p class="project-description">Built with Python/FastAPI backend (LangChain, GPT-4o-mini, Chroma DB) and HTML/CSS/JS frontend (Web Speech API). It features advanced semantic memory for long-term recall, customizable personalities and themes, browser-based voice synthesis and persistent per-user data in a responsive single-page app with async REST APIs.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Full-Stack</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">OpenAI API</span>
+                            <span class="tech-tag">Vector Databases</span>
+                            <span class="tech-tag">Async</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">Data Persistence</span>
+                            <span class="tech-tag">UX Design</span>
+                        </div>
+                        <div class="project-links">
+                            <p style="color: blue;">Live Demo - Below</p>
+                            <!--<a href="#"><i class="fab fa-github"></i> Code</a>
+                            <a href="#"><i class="fas fa-play"></i> Live App</a>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-content" style="padding-top: 2rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <h3 class="project-title">AI Dungeon Master</h3>
+                            <span class="project-badge" style="background: #06b6d4; color: white; padding: 0.25rem 0.75rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 600;">Full-Stack</span>
+                        </div>
+                        <!-- ==== media carousel ==== -->
+                        <!--<div class="project-media carousel">
+                            <div class="carousel-inner">
+                                <img src="images/circle280.png" alt="Slide 1">
+                                <img src="images/circle280.png" alt="Slide 2">
+                                <img src="images/circle280.png" alt="Slide 3">
+                            </div>
+                            <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
+                        </div>-->
+                        <p class="project-description">Dynamic AI narrative generation, with character progression system, multi-user persistent profiles, quest tracking with stage progression, combat system with NPC health tracking, inventory & marketplace, voice narration, save/load functionality, automatic level calculation, graceful error handling with model fallback</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Full-Stack</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">OpenAI API</span>
+                            <span class="tech-tag">Error Handling</span>
+                        </div>
+                        <div class="project-links">
+                            <p style="color: blue;">Live Demo - Below</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <!--<div class="project-card">
+                    <div class="project-content" style="padding-top: 2rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <h3 class="project-title">Human Activity Recognition</h3>
+                            <span class="project-badge" style="background: #ec4899; color: white; padding: 0.25rem 0.75rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 600;">Video AI</span>
+                        </div>
+                        <p class="project-description">3D CNN + skeletal data for 12-class activity recognition. 96% accuracy in real-time surveillance pipelines.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">PyTorch3D</span>
+                            <span class="tech-tag">OpenPose</span>
+                            <span class="tech-tag">MediaPipe</span>
+                            <span class="tech-tag">3D CNN</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> Code</a>
+                            <a href="#"><i class="fas fa-video"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== AI Companion Bot ========-->
+    <h2 class="section-title">AI Companion</h2>
+    <iframe src="https://companion-ai-diggidy.replit.app"
+            width="600"
+            height="600"
+            frameborder="0"
+            style="border: none;">
+    </iframe>
+
+    <!-- ======== AI Dungeon Master ========-->
+    <h2 class="section-title">AI Dungeon Master</h2>
+    <iframe src="https://ai-dungeon-master-diggidy.replit.app"
+            width="600"
+            height="600"
+            frameborder="0"
+            style="border: none;">
+    </iframe>
+
+    <!-- ======== GENERATIVE AI IMAGE CAROUSEL ======== -->
+    <div class="gen-ai-carousel-section">
+        <div class="carousel-header">
+            <h2 class="section-title">Generative AI Gallery</h2>
+            <p style="color: var(--gray); margin-bottom: 2rem; text-align: center;">
+                AI-generated art using Midjourney, fine-tuned LoRAs, and custom prompts.
+            </p>
+        </div>
+
+        <div class="ai-image-carousel">
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <img src="/images/close_up_of_a_news_anchor_women_graphic_novel_style.png">
+                    <img src="/images/hallway_leading_to_a_corner_dimly_lit_clean_space.png">
+                    <img src="/images/portrait_of_women_wearing_a_hood_Fabric_lace_Pigment.png">
+                    <img src="/images/portrait_of_women_wearing_a_hood_Features_happy_Face.png">
+                    <img src="/images/realistic_cyberpunk_city_vibrant_lights_and_signs.png">
+                    <img src="/images/spahgetti_and_meatballs_on_a_white_plate_wooden.png">
+                    <img src="/images/campire_in_the_woods_next_to_a_teepee_Style_native.png">
+                    <img src="/images/greenHumanAlien.png">
+                </div>
+            </div>
+            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+            <div class="carousel-dots"></div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-content">
+                <p>I'm always interested in hearing about new opportunities and collaborations. Feel free to reach out!</p>
+
+                <div class="social-links">
+                    <!--<a href="#" class="social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>-->
+                    <a target="_blank" href="https://www.linkedin.com/in/darth-leanza" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <!--<a href="#" class="social-link" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>-->
+                    <a href="mailto:darth.leanza@gmail.com" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+
+                <form class="contact-form" action="https://formspree.io/f/myzbjpqq" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="form-control" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Darth Leanza. All rights reserved reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Smooth scrolling for navigation links, Form submission, Add animation on scroll, Observe project cards -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+    <!-- Form submission -->
+    <script>
+        var form = document.getElementById("my-form");
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            var status = document.getElementById("my-form-status");
+            var data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    status.innerHTML = "Thanks for your submission!";
+                    form.reset()
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                        } else {
+                            status.innerHTML = "Oops! There was a problem submitting your form"
+                        }
+                    })
+                }
+            }).catch(error => {
+                status.innerHTML = "Oops! There was a problem submitting your form"
+            });
+        }
+        form.addEventListener("submit", handleSubmit)
+    </script>
+
+    <!-- Simple carousel – one per card -->
+    <script>
+        /* Simple carousel – one per card */
+        document.querySelectorAll('.carousel').forEach(carousel => {
+            const inner = carousel.querySelector('.carousel-inner');
+            const imgs = carousel.querySelectorAll('img');
+            const prev = carousel.querySelector('.carousel-prev');
+            const next = carousel.querySelector('.carousel-next');
+            let idx = 0;
+
+            const show = i => {
+                idx = (i + imgs.length) % imgs.length;
+                inner.style.transform = `translateX(-${idx * 100}%)`;
+            };
+
+            prev.addEventListener('click', () => show(idx - 1));
+            next.addEventListener('click', () => show(idx + 1));
+
+            // auto-play (optional)
+            // setInterval(() => show(idx + 1), 4000);
+        });
+    </script>
+
+    <!-- Generative Auto-scrolling AI Image Carousel -->
+    <script>
+        /* Auto-scrolling AI Image Carousel */
+        const carousel = document.querySelector('.ai-image-carousel');
+        if (carousel) {
+            const track = carousel.querySelector('.carousel-track');
+            const slides = track.querySelectorAll('img');
+            const dotsContainer = carousel.querySelector('.carousel-dots');
+            const prevBtn = carousel.querySelector('.prev');
+            const nextBtn = carousel.querySelector('.next');
+            let idx = 0;
+            let autoSlide;
+
+            // Create dots
+            slides.forEach((_, i) => {
+                const dot = document.createElement('span');
+                dot.classList.toggle('active', i === 0);
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            });
+            const dots = dotsContainer.querySelectorAll('span');
+
+            const goToSlide = (i) => {
+                idx = (i + slides.length) % slides.length;
+                track.style.transform = `translateX(-${idx * 100}%)`;
+                dots.forEach((d, di) => d.classList.toggle('active', di === idx));
+                resetAutoSlide();
+            };
+
+            const nextSlide = () => goToSlide(idx + 1);
+            const resetAutoSlide = () => {
+                clearInterval(autoSlide);
+                autoSlide = setInterval(nextSlide, 3000); // Auto-scroll every 3s
+            };
+
+            prevBtn.addEventListener('click', () => goToSlide(idx - 1));
+            nextBtn.addEventListener('click', nextSlide);
+
+            // Start auto-slide
+            resetAutoSlide();
+
+            // Pause on hover
+            carousel.addEventListener('mouseenter', () => clearInterval(autoSlide));
+            carousel.addEventListener('mouseleave', resetAutoSlide);
+        }
+    </script>
+
+    <!-- *****Chatbot Popup***** -->
+    <button class="chatbot-toggle-btn" id="chatbot-toggle-btn">❓︎</button>
+    <div class="chatbot-popup" id="chatbot-popup">
+        <div class="chatbot-header" style="background: #000000; color: #ffffff;">
+            <span>Resume</span>
+            <button class="chatbot-toggle" id="chatbot-close">✖</button>
+        </div>
+        <div class="chatbot-content" id="chatbot-content">
+            <div id="chatbot" class="botui-app-container">
+                <bot-ui></bot-ui>
+            </div>
+        </div>
+    </div>
+
+    <script src="/lib_chat_bot/vue.min.js"></script>
+    <script src="/lib_chat_bot/botui.js"></script>
+    <script src="/lib_chat_bot/fuzzball.js"></script>
+    <script>
+        console.log('Starting BotUI...');
+        const botui = new BotUI('chatbot');
+        console.log('BotUI initialized');
+        let loreData = [];
+
+        // Fallback lore data if lore.json fails
+        const fallbackLore = [
+            {
+                keywords: ["story", "horrows end", "scary"],
+                response: "The mysterious realm of Horrows End awaits your journey…"
+            }
+        ];
+
+        // Load lore.json
+        fetch('/lib_chat_bot/portfoliochatbot.json')
+            .then(response => {
+                if (!response.ok) {
+                    console.warn('Failed to load bot, using fallback data');
+                    loreData = fallbackLore;
+                    startChat();
+                    return null;
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data) loreData = data;
+                console.log('botData loaded');
+                startChat();
+            })
+            .catch(err => {
+                console.error('Error loading bot:', err);
+                loreData = fallbackLore;
+                botui.message.add({ content: 'Bot data is missing...' });
+                startChat();
+            });
+
+        function startChat() {
+            botui.message.add({
+                content: 'Thank you for visiting my portfolio. What info can I help you find?'
+            }).then(() => showInput());
+        }
+
+        function showInput() {
+            botui.action.text({
+                action: { placeholder: 'Help, Contact, About' }
+            }).then(res => {
+                botui.message.add({ content: `You: ${res.value}`, delay: 200 });
+                const response = getLoreResponse(res.value.toLowerCase());
+                botui.message.add({
+                    content: `${response}`,
+                    delay: 500
+                }).then(showInput);
+            }).catch(err => {
+                console.error('Input error:', err);
+                botui.message.add({ content: 'The Chat Bot faltered... Try asking again!' });
+                showInput();
+            });
+        }
+
+        function getLoreResponse(userInput) {
+            // Normalize input
+            const inputWords = userInput.toLowerCase().split(/\s+/);
+
+            for (const entry of loreData) {
+                for (const keyword of entry.keywords) {
+                    // Full phrase fuzzy match (using token_set_ratio for better phrase handling)
+                    if (fuzzball.token_set_ratio(userInput, keyword) > 75) {
+                        console.log(`Matched phrase: ${keyword} (score: ${fuzzball.token_set_ratio(userInput, keyword)})`);
+                        return entry.response;
+                    }
+
+                    // Partial match for individual words
+                    const keywordWords = keyword.toLowerCase().split(/\s+/);
+                    for (const inputWord of inputWords) {
+                        for (const keywordWord of keywordWords) {
+                            if (fuzzball.partial_ratio(inputWord, keywordWord) > 85) {
+                                console.log(`Matched word: ${inputWord} in ${keyword} (score: ${fuzzball.partial_ratio(inputWord, keywordWord)})`);
+                                return entry.response;
+                            }
+                        }
+                    }
+                }
+            }
+            return "The Chat Bot did not anything. Try Help, Contact or About";
+        }
+
+        // Popup Toggle Logic
+        const chatbotPopup = document.getElementById('chatbot-popup');
+        const chatbotContent = document.getElementById('chatbot-content');
+        const toggleBtn = document.getElementById('chatbot-toggle-btn');
+        const closeBtn = document.getElementById('chatbot-close');
+
+        toggleBtn.addEventListener('click', () => {
+            chatbotPopup.style.display = 'block';
+            chatbotContent.classList.add('open');
+            toggleBtn.style.display = 'none';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            chatbotPopup.style.display = 'none';
+            toggleBtn.style.display = 'block';
+        });
+
+        // Start with popup closed
+        chatbotPopup.style.display = 'none';
+        toggleBtn.style.display = 'block';
+    </script>
+</body>
+</html>
