@@ -1353,10 +1353,10 @@
                 const response = getLoreResponse(res.value.toLowerCase());
 
                 // THIS IS THE KEY FIX:
-                //const formattedResponse = response.replace(/\\n/g, '<br>');
+                const formattedResponse = response.replace(/\\n/g, '<br>');
 
                 botui.message.add({
-                    content: `${response}`,
+                    content: `${formattedResponse}`,
                     delay: 500,
                     // Optional: Allow HTML rendering
                     type: 'html'  // Important! Tells BotUI to render HTML
