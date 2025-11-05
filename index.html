@@ -1340,7 +1340,8 @@
 
         function startChat() {
             botui.message.add({
-                content: 'Thank you for visiting my portfolio. What info can I help you find?<br>[rule based chat bot demo]3'
+                content: 'Thank you for visiting my portfolio. What info can I help you find?<BR> 4[rule based chat bot demo]',
+                type: 'html'  // Important! Tells BotUI to render HTML
             }).then(() => showInput());
         }
 
@@ -1350,9 +1351,15 @@
             }).then(res => {
                 botui.message.add({ content: `You: ${res.value}`, delay: 200 });
                 const response = getLoreResponse(res.value.toLowerCase());
+
+                // THIS IS THE KEY FIX:
+                const formattedResponse = response.replace(/\\n/g, '<br>');
+
                 botui.message.add({
-                    content: `${response}`,
-                    delay: 500
+                    content: `${formattedResponse}`,
+                    delay: 500,
+                    // Optional: Allow HTML rendering
+                    type: 'html'  // Important! Tells BotUI to render HTML
                 }).then(showInput);
             }).catch(err => {
                 console.error('Input error:', err);
