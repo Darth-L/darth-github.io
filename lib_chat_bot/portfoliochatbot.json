@@ -1,30 +1,22 @@
 [
     {
-        "keywords": [ "lore", "horrows end", "horrows", "horror", "scary", "scared", "concept", "story" ],
-        "response": "A small town built atop an ancient Native American battlefield, where the soil still whispers with the echoes of the past. Stories passed down through generations speak of an ancient chief who, with his final breath, cursed the land, binding it to sorrow, unrest, and something far older than death."
-    },
-    {
         "keywords": [ "about" ],
-        "response": "Step into the mysterious realm of Horrows End, a quaint town cloaked in mystery and waiting for brave souls to uncover its hidden truths. In this atmospheric, story-driven horror game, shadows conceal untold horrors, while the light reveals astonishing mysteries."
+        "response": "I'm a passionate AI engineer with expertise in prompt engineering, generative AI and game development. I specialize in developing innovative solutions that bridge the gap between research and real-world applications.\nI am proficient with; Grok, Copilot, Elevenlabs, Midjourney as well as Unity Unity 6 and C#."
     },
     {
-        "keywords": [ "visitors", "aliens" ],
-        "response": "The town is still searching for answers after a group of kids vanished in the woods. Their belongings were found untouched, and search parties have found no trace of the missing teens in the surrounding area. See what you can uncover�"
+        "keywords": [ "education" ],
+        "response": "A.S. in Computer Science, Certificate in Web Design\nGoogle AI Essentials Certificate"
     },
     {
-        "keywords": [ "realm", "demons", "devil", "possession" ],
-        "response": "The Visitors might not be what we originally believed. The Other Realm? What is The Other Realm? Where is The Other Realm? How do you get to The Other Realm?"
+        "keywords": [ "projects" ],
+        "response": ""
     },
     {
-        "keywords": [ "mesa", "research", "base" ],
-        "response": "Who or what is truly behind the strange happenings in town? The missing teens, the sightings, the glowing orbs, whispers of surveillance, cover-ups, and something watching from beyond. Could it all be deliberate? Or is there a deeper agenda hidden behind official statements and sealed records?"
-    },
-    {
-        "keywords": [ "mode", "modes" ],
-        "response": "There are 3 stories that take place in Horrows End. Visitors, The Other Realm and The Mesa Research Base. Search each story for more details about each story."
+        "keywords": [ "contact" ],
+        "response": "darth.leanza@gmail.com"
     },
     {
         "keywords": [ "help" ],
-        "response": "Popular Commands: lore, about, Visitors, The Other Realm, The Mesa Research Base"
+        "response": "Popular Commands: about, education, projects, contact"
     }
 ]
