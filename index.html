@@ -1310,8 +1310,8 @@
         // Fallback lore data if lore.json fails
         const fallbackLore = [
             {
-                keywords: ["story", "horrows end", "scary"],
-                response: "The mysterious realm of Horrows End awaits your journey…"
+                keywords: ["about", "contact", "education"],
+                response: "This is a demo of a rule based chat bot…"
             }
         ];
 
@@ -1340,7 +1340,7 @@
 
         function startChat() {
             botui.message.add({
-                content: 'Thank you for visiting my portfolio. What info can I help you find?'
+                content: 'Thank you for visiting my portfolio. What info can I help you find? [rule based chat bot demo]'
             }).then(() => showInput());
         }
 
