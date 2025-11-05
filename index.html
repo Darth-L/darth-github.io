@@ -1340,7 +1340,7 @@
 
         function startChat() {
             botui.message.add({
-                content: 'Thank you for visiting my portfolio. What info can I help you find?<BR> 4[rule based chat bot demo]',
+                content: 'Thank you for visiting my portfolio. What info can I help you find?<BR>[rule based chat bot demo]',
                 type: 'html'  // Important! Tells BotUI to render HTML
             }).then(() => showInput());
         }
@@ -1353,7 +1353,7 @@
                 const response = getLoreResponse(res.value.toLowerCase());
 
                 // THIS IS THE KEY FIX:
-                const formattedResponse = response.replace(/\\n/g, '<br>');
+                //const formattedResponse = response.replace(/\\n/g, '<br>');
 
                 botui.message.add({
                     content: `${formattedResponse}`,
