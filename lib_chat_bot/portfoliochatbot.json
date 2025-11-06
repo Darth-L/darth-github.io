@@ -1,11 +1,11 @@
 [
     {
         "keywords": [ "about" ],
-        "response": "I'm a passionate AI engineer with expertise in prompt engineering, generative AI and game development.\nI specialize in developing innovative solutions that bridge the gap between research and real-world applications.\n\nI am proficient with; Grok, Copilot, Elevenlabs, Midjourney as well as Unity Unity 6 and C#."
+        "response": "I'm a passionate AI engineer with expertise in prompt engineering, generative AI and game development.\\nI specialize in developing innovative solutions that bridge the gap between research and real-world applications.\\nI am proficient with; Grok, Copilot, Elevenlabs, Midjourney as well as Unity Unity 6 and C#."
     },
     {
         "keywords": [ "education" ],
-        "response": "A.S. in Computer Science, Certificate in Web Design\nGoogle AI Essentials Certificate"
+        "response": "A.S. in Computer Science\\nCertificate in Web Design\\nGoogle AI Essentials Certificate"
     },
     {
         "keywords": [ "projects" ],
