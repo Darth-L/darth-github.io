@@ -18,14 +18,15 @@
     <!-- index.html Styles -->
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #10b981;
+            --primary: #fcbf23; /*Orange*/ /*#6366f1; Old*/
+            --primary-dark: #a67702; /*Dark Orange/Brown*/
+            --secondary: #adadac; /*Grey*/
             --dark: #111827;
             --light: #f9fafb;
-            --gray: #6b7280;
+            --gray: #5c5c5c;
+            --black: #000000;
             --light-gray: #e5e7eb;
-            --border: #374151;
+            --border: #756a4c;
         }
 
         * {
@@ -49,7 +50,7 @@
 
         /* Header & Navigation */
         header {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: white; /*rgba(255, 255, 255, 0.95);*/
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
@@ -67,7 +68,7 @@
 
         .logo {
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: var(--primary);
             text-decoration: none;
         }
@@ -112,21 +113,21 @@
         .hero {
             padding: 8rem 0 6rem;
             text-align: center;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            background: #fabf2a; /*linear-gradient(135deg, #ffde8c 0%, #ffb700 100%);*/
         }
 
             .hero h1 {
                 font-size: 3.5rem;
                 margin-bottom: 1rem;
-                background: linear-gradient(to right, var(--primary), var(--primary-dark));
+                background: #000000;/*linear-gradient(to right, var(--primary), var(--primary-dark));
                 -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
+                -webkit-text-fill-color: transparent;*/
                 background-clip: text;
             }
 
             .hero .subtitle {
                 font-size: 1.25rem;
-                color: var(--gray);
+                color: var(--black);
                 max-width: 600px;
                 margin: 0 auto 2rem;
             }
@@ -152,7 +153,7 @@
         }
 
         .btn-primary {
-            background-color: var(--primary);
+            background-color: var(--black);
             color: white;
         }
 
@@ -163,12 +164,12 @@
 
         .btn-outline {
             background-color: transparent;
-            color: var(--primary);
+            color: var(--black);
             border: 2px solid var(--primary);
         }
 
             .btn-outline:hover {
-                background-color: var(--primary);
+                background-color: var(--primary-dark);
                 color: white;
             }
 
@@ -221,15 +222,15 @@
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.75rem;
+            gap: 0.9rem;
         }
 
         .skill-tag {
-            background-color: #eef2ff;
-            color: var(--primary);
-            padding: 0.5rem 1rem;
+            background-color: var(--primary);
+            color: black;
+            padding: 0.4rem 1rem;
             border-radius: 2rem;
-            font-size: 0.875rem;
+            font-size: 1rem;
             font-weight: 500;
         }
 
@@ -242,8 +243,8 @@
                 height: 280px;
                 border-radius: 50%;
                 object-fit: cover;
-                border: 8px solid #eef2ff;
-                box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+                border: 8px solid var(--primary);
+                box-shadow: 0 10px 30px rgba(252, 191, 35, 0.35);
             }
 
         /* Projects Section */
@@ -314,7 +315,7 @@
 
         .tech-tag {
             background-color: #f3f4f6;
-            color: var(--gray);
+            color: black;
             padding: 0.25rem 0.75rem;
             border-radius: 0.5rem;
             font-size: 0.75rem;
@@ -898,7 +899,7 @@
                             <span class="tech-tag">Enhanced Fuzzy Search</span>
                         </div>
                         <div class="project-links">
-                            <p style="color: blue;">Demo Available on this Page</p>
+                            <p style="color: blue; "><strong>Demo Available on this Page</strong></p>
                             <!--<a href="#"><i class="fab fa-github"></i> Code</a>
                             <a href="#"><i class="fas fa-chart-line"></i> Notebook</a>-->
                         </div>
@@ -946,7 +947,7 @@
                             <span class="tech-tag">Responsive</span>
                         </div>
                         <div class="project-links">
-                            <p style="color: blue;">Live Demo</p>
+                            <p style="color: blue;"><strong>Live Demo</strong></p>
                             <!--<a href="#"><i class="fab fa-github"></i> Code</a>
                             <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>-->
                         </div>
@@ -983,7 +984,7 @@
                             <span class="tech-tag">UX Design</span>
                         </div>
                         <div class="project-links">
-                            <p style="color: blue;">Live Demo - Below</p>
+                            <p style="color: blue;"><strong>Live Demo - Below</strong></p>
                             <!--<a href="#"><i class="fab fa-github"></i> Code</a>
                             <a href="#"><i class="fas fa-play"></i> Live App</a>-->
                         </div>
@@ -1016,7 +1017,7 @@
                             <span class="tech-tag">Error Handling</span>
                         </div>
                         <div class="project-links">
-                            <p style="color: blue;">Live Demo - Below</p>
+                            <p style="color: blue;"><strong>Live Demo - Below</strong></p>
                         </div>
                     </div>
                 </div>
@@ -1284,7 +1285,7 @@
         }
     </script>
 
-    <!-- *****Chatbot Popup***** -->
+    <!-- *****Rule Based Chatbot Popup***** -->
     <button class="chatbot-toggle-btn" id="chatbot-toggle-btn">❓︎</button>
     <div class="chatbot-popup" id="chatbot-popup">
         <div class="chatbot-header" style="background: #000000; color: #ffffff;">
@@ -1352,7 +1353,7 @@
                 botui.message.add({ content: `You: ${res.value}`, delay: 200 });
                 const response = getLoreResponse(res.value.toLowerCase());
 
-                // THIS IS THE KEY FIX:
+                // THIS IS THE KEY FIX: ***use \\n in the json for line-break***
                 const formattedResponse = response.replace(/\\n/g, '<br>');
 
                 botui.message.add({
